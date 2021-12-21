@@ -82,29 +82,31 @@ export default function AvoidCollision() {
                         <InputNumber placeholder="từ -0.1 đến 0.1" style={{ width: '100%' }} />
                     </Form.Item>
                 </Col>
-                {distance > 20 ? <Col span={8}>
-                    <Form.Item
-                        label="Góc đến mục tiêu (độ)"
-                        rules={[
-                            { required: true, message: "Góc đến mục tiêu phải là số" },
-                            { type: 'number', min: -120, max: 120, message: 'Góc đến mục tiêu là số từ -120 đến 120' }
-                        ]}
-                        name="goc_muc_tieu"
-                    >
-                        <InputNumber placeholder="từ -120 đến 120" style={{ width: '100%' }} />
-                    </Form.Item>
-                </Col> : <Col span={8}>
-                    <Form.Item
-                        label="Hướng của chướng ngại vật (độ)"
-                        rules={[
-                            { required: true, message: "Hướng của chướng ngại vật phải là số" },
-                            { type: 'number', min: -180, max: 180, message: 'Hướng của chướng ngại vật là số từ -180 đến 180' }
-                        ]}
-                        name="huong_chuong_ngai_vat"
-                    >
-                        <InputNumber placeholder="từ -180 đến 180" style={{ width: '100%' }} />
-                    </Form.Item>
-                </Col>}
+                {distance > 20 ?
+                    <Col span={8}>
+                        <Form.Item
+                            label="Góc đến mục tiêu (độ)"
+                            rules={[
+                                { required: true, message: "Góc đến mục tiêu phải là số" },
+                                { type: 'number', min: -120, max: 120, message: 'Góc đến mục tiêu là số từ -120 đến 120' }
+                            ]}
+                            name="goc_muc_tieu"
+                        >
+                            <InputNumber placeholder="từ -120 đến 120" style={{ width: '100%' }} />
+                        </Form.Item>
+                    </Col> :
+                    <Col span={8}>
+                        <Form.Item
+                            label="Hướng của chướng ngại vật (độ)"
+                            rules={[
+                                { required: true, message: "Hướng của chướng ngại vật phải là số" },
+                                { type: 'number', min: -180, max: 180, message: 'Hướng của chướng ngại vật là số từ -180 đến 180' }
+                            ]}
+                            name="huong_chuong_ngai_vat"
+                        >
+                            <InputNumber placeholder="từ -180 đến 180" style={{ width: '100%' }} />
+                        </Form.Item>
+                    </Col>}
             </Row>
 
             <Form.Item>
