@@ -4,6 +4,8 @@ import { Collapse } from 'antd';
 import Target from './components/Target';
 import { createContext, useEffect, useState } from 'react';
 import Result from './components/Result'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const { Panel } = Collapse;
 export const ModalContext = createContext();
 function App() {
@@ -30,6 +32,12 @@ function App() {
                 </Collapse>
             </div>
             <Result></Result>
+            <ToastContainer
+                draggable
+                closeOnClick
+                position="top-right"
+                theme='dark'
+            />
         </ModalContext.Provider>
     );
 }
