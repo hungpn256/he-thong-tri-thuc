@@ -1,22 +1,19 @@
 import { Button, Col, Form, InputNumber, Row } from 'antd';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { ModalContext } from '../../App';
+// import { ModalContext } from '../../App';
 export default function AvoidCollision() {
-    const [distance, setDistance] = useState(0)
+    const [distance, setDistance] = useState(0);
     const [form] = Form.useForm();
-    const { visible, setVisible } = useContext(ModalContext)
-    const onRequiredTypeChange = (props) => {
-        console.log(props);
-    };
+    // const { visible, setVisible } = useContext(ModalContext)
     const onSubmit = (data) => {
         console.log(data, 'sdas');
-        toast.success("okee")
-    }
+        toast.success('okee');
+    };
     return (
         <Form
             form={form}
-            layout="vertical"
+            layout='vertical'
             onFinish={onSubmit}
             initialValues={{
                 khoang_cach: 0,
@@ -24,27 +21,56 @@ export default function AvoidCollision() {
                 goc_muc_tieu: 0,
                 van_toc_hien_tai: 0,
                 van_toc_tuong_doi: 0,
-                huong_chuong_ngai_vat: 0
+                huong_chuong_ngai_vat: 0,
             }}
         >
             <Row gutter={[10, 10]}>
                 <Col span={8}>
                     <Form.Item
-                        label="Khoảng cách đến chướng ngại vật (m)"
+                        label='Khoảng cách đến chướng ngại vật (m)'
                         rules={[
-                            { required: true, message: "Khoảng cách đến chướng ngại vật là số" },
-                            { type: 'number', min: 0, max: 80, message: 'Khoảng cách đến chướng ngại vật là số từ 0 đến 80' }
+                            {
+                                required: true,
+                                message: 'Khoảng cách đến chướng ngại vật là số',
+                            },
+                            {
+                                type: 'number',
+                                min: 0,
+                                max: 80,
+                                message:
+                                    'Khoảng cách đến chướng ngại vật là số từ 0 đến 80',
+                            },
                         ]}
-                        name="khoang_cach"
+                        name='khoang_cach'
                     >
-                        <InputNumber placeholder="từ 0 đến 80 độ" style={{ width: '100%' }}
+                        <InputNumber
+                            placeholder='từ 0 đến 80 độ'
+                            style={{ width: '100%' }}
                             onChange={(value) => setDistance(value)}
                         />
-
                     </Form.Item>
-
                 </Col>
 
+                <Col span={8}>
+                    <Form.Item
+                        label='Góc lái hiện tại (độ)'
+                        rules={[
+                            { required: true, message: 'Góc lái phải là số' },
+                            {
+                                type: 'number',
+                                min: -65,
+                                max: 65,
+                                message: 'Góc lái là số từ -65 đến 65',
+                            },
+                        ]}
+                        name='goc_lai'
+                    >
+                        <InputNumber
+                            placeholder='từ -65 đến 65 độ'
+                            style={{ width: '100%' }}
+                        />
+                    </Form.Item>
+                </Col>
                 <Col span={8}>
                     <Form.Item
                         label="Góc lái hiện tại (độ)"
@@ -111,8 +137,8 @@ export default function AvoidCollision() {
 
             <Form.Item>
                 <Button type="primary" htmlType="submit">Submit</Button>
+
             </Form.Item>
         </Form >
-
-    )
+    );
 }
