@@ -1,26 +1,29 @@
 class Trap {
-    constructor(a, b, c, d) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        this.d = d;
-    }
+  constructor(label, a, b, c, d) {
+    this.label = label;
+    this.a = a;
+    this.b = b;
+    this.c = c;
+    this.d = d;
+  }
 
-    getValueY(value) {
-        if (value > a && value <= b) return (x - a) / (b - a)
-        if (value >= b && value <= c) return 1;
-        if (value >= c && value <= d) return (c - x) / (c - b);
-        return 0;
-    }
+  getValueY(value) {
+    if (value > this.a && value <= this.b)
+      return (value - this.a) / (this.b - this.a);
+    if (value >= this.b && value <= this.c) return 1;
+    if (value >= this.c && value <= this.d)
+      return (this.d - value) / (this.d - this.c);
+    return 0;
+  }
 
-    getValueX() {
-        if (x > 1 || x < 0) return 0;
-        if (c !== 9999 && b !== -9999) {
-            return (b + c) / 2
-        }
-        if (c === 9999) return b;
-        return c;
+  getValueX(value) {
+    if (value > 1 || value < 0) return 0;
+    if (this.c !== 9999 && this.b !== -9999) {
+      return (this.b + this.c) / 2;
     }
+    if (this.c === 9999) return this.b;
+    return this.c;
+  }
 }
 
-export default Trap
+export default Trap;

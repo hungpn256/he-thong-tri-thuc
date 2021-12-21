@@ -1,17 +1,18 @@
 import { Button, Col, Form, InputNumber, Row } from 'antd';
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { ModalContext } from '../../App';
+import { gotoTarget } from '../../controllers/gotoTarget';
+import SteeringAngleCurrent from '../../utils/SteeringAngleCurrent';
+// import { ModalContext } from '../../App';
 export default function Target() {
   const [form] = Form.useForm();
-  const { visible, setVisible } = useContext(ModalContext);
-  const onRequiredTypeChange = (props) => {
-    console.log(props);
-  };
+  //   const { visible, setVisible } = useContext(ModalContext);
+
   const onSubmit = (data) => {
-    console.log(data, 'sdas');
-    toast.success('okee');
+    gotoTarget(data);
+    console.log(data);
   };
+
   return (
     <Form
       form={form}

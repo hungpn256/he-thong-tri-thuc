@@ -1,6 +1,8 @@
 import { Collapse } from 'antd';
 import React from 'react';
 import Target from '../../components/Target';
+import Connering from '../../components/Connering';
+import AvoidCollision from '../../components/AvoidCollision';
 const { Panel } = Collapse;
 export default function Home() {
   return (
@@ -13,11 +15,11 @@ export default function Home() {
           <Panel header='Đi tới mục tiêu' key='1'>
             <Target></Target>
           </Panel>
-          <Panel header='This is panel header 2' key='2'>
-            <p>heello</p>
+          <Panel header='Đi tới khúc cua' key='2'>
+            <Connering />
           </Panel>
-          <Panel header='This is panel header 3' key='3'>
-            <p>heello</p>
+          <Panel header='Tránh va chạm' key='3'>
+            <AvoidCollision></AvoidCollision>
           </Panel>
         </Collapse>
       </div>
