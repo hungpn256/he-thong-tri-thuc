@@ -36,7 +36,6 @@ function App() {
                 draggable
                 closeOnClick
                 position="top-right"
-                theme='dark'
             />
         </ModalContext.Provider>
     );
