@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
-
+import 'antd/dist/antd.css';
+import { Collapse } from 'antd';
+import Target from './components/Target';
+import { createContext, useEffect, useState } from 'react';
+import Result from './components/Result'
+const { Panel } = Collapse;
+export const ModalContext = createContext();
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [visible, setVisible] = useState(false);
+    useEffect(() => {
+        console.log('visi', visible)
+    })
+    return (
+        <ModalContext.Provider value={{ visible, setVisible }}>
+            <center class="my-5">
+                <h1>    Hệ thống lái xe tự động</h1>
+            </center>
+            <div class="container">
+                <Collapse accordion>
+                    <Panel header="Đi tới mục tiêu" key="1">
+                        <Target></Target>
+                    </Panel>
+                    <Panel header="This is panel header 2" key="2">
+                        <p>heello</p>
+                    </Panel>
+                    <Panel header="This is panel header 3" key="3">
+                        <p>heello</p>
+                    </Panel>
+                </Collapse>
+            </div>
+            <Result></Result>
+        </ModalContext.Provider>
+    );
 }
 
 export default App;
