@@ -18,6 +18,7 @@ export default function Target() {
             form={form}
             layout="vertical"
             onFinish={onSubmit}
+            onFinishFailed={() => { toast.error("Vui lòng nhập đúng yêu cầu") }}
             initialValues={{
                 goc_lai: 0,
                 goc_muc_tieu: 0,
@@ -43,8 +44,8 @@ export default function Target() {
                     <Form.Item
                         label="Góc đến mục tiêu (độ)"
                         rules={[
-                            { required: true, message: "Góc lái phải là số" },
-                            { type: 'number', min: -120, max: 120, message: 'Góc lái là số từ -120 đến 120' }
+                            { required: true, message: "Góc đến mục tiêu phải là số" },
+                            { type: 'number', min: -120, max: 120, message: 'Góc đến mục tiêu là số từ -120 đến 120' }
                         ]}
                         name="goc_muc_tieu"
                     >
@@ -54,7 +55,10 @@ export default function Target() {
                 <Col span={8}>
                     <Form.Item
                         label="Vận tốc hiện tại (m/s)"
-                        required
+                        rules={[
+                            { required: true, message: "Vận tốc hiện tại phải là số" },
+                            { type: 'number', min: 0, max: 25, message: 'Vận tốc hiện tại là số từ 0 đến 25' }
+                        ]}
                         name="van_toc_hien_tai"
                     >
                         <InputNumber placeholder="từ 0 đến 25" style={{ width: '100%' }} />
@@ -63,19 +67,25 @@ export default function Target() {
                 <Col span={8}>
                     <Form.Item
                         label="Vận tốc tương đối (m/s)"
-                        required
+                        rules={[
+                            { required: true, message: "Vận tốc tương đối phải là số" },
+                            { type: 'number', min: -0.1, max: 0.1, message: 'Vận tốc tương đối là số từ -0.1 đến 0.1' }
+                        ]}
                         name="van_toc_tuong_doi"
                     >
-                        <Input placeholder="từ -0.1 đến 0.1" />
+                        <InputNumber placeholder="từ -0.1 đến 0.1" style={{ width: '100%' }} />
                     </Form.Item>
                 </Col>
                 <Col span={8}>
                     <Form.Item
                         label="Khoảng cách đến mục tiêu (m)"
-                        required
+                        rules={[
+                            { required: true, message: "Khoảng cách đến mục tiêu phải là số" },
+                            { type: 'number', min: 0, max: 300, message: 'Khoảng cách đến mục tiêu là số từ 0 đến 300' }
+                        ]}
                         name="khoang_cach"
                     >
-                        <Input placeholder="từ 0 đến 300" min={0} max={300} />
+                        <InputNumber placeholder="từ 0 đến 300" style={{ width: '100%' }} />
                     </Form.Item>
                 </Col>
             </Row>

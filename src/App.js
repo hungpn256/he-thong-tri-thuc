@@ -1,47 +1,81 @@
-import './App.css';
 import 'antd/dist/antd.css';
-import { Collapse } from 'antd';
-import Target from './components/Target';
 import { createContext, useEffect, useState } from 'react';
-import Result from './components/Result'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Connering from './components/Connering';
-import AvoidCollision from './components/AvoidCollision';
-const { Panel } = Collapse;
+import './App.css';
+import Result from './components/Result';
+import Home from './pages/home';
 export const ModalContext = createContext();
 function App() {
-    const [visible, setVisible] = useState(false);
-    useEffect(() => {
-        console.log('visi', visible)
-    })
-    return (
-        <ModalContext.Provider value={{ visible, setVisible }}>
-            <center class="my-5">
-                <h1>    Hệ thống lái xe tự động</h1>
-            </center>
-            <div class="container">
-                <Collapse accordion>
-                    <Panel header="Đi tới mục tiêu" key="1">
-                        <Target></Target>
-                    </Panel>
-                    <Panel header="Đi đến khúc cua" key="2">
-                        <Connering></Connering>
-                    </Panel>
-                    <Panel header="Tránh va chạm" key="3">
-                        <AvoidCollision></AvoidCollision>
-                    </Panel>
-                </Collapse>
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    console.log('visi', visible);
+  });
+  return (
+    <ModalContext.Provider value={{ visible, setVisible }}>
+      <div className='app'>
+        <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
+          <div className='container-fluid'>
+            <a className='navbar-brand' href='/'>
+              Navbar scroll
+            </a>
+            <button
+              className='navbar-toggler'
+              type='button'
+              data-bs-toggle='collapse'
+              data-bs-target='#navbarScroll'
+              aria-controls='navbarScroll'
+              aria-expanded='false'
+              aria-label='Toggle navigation'
+            >
+              <span className='navbar-toggler-icon'></span>
+            </button>
+            <div
+              className='collapse navbar-collapse'
+              id='navbarScroll'
+            >
+              <ul className='navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll'>
+                <li className='nav-item'>
+                  <a
+                    className='nav-link active'
+                    aria-current='page'
+                    href='#'
+                  >
+                    Trang chủ
+                  </a>
+                </li>
+                <li className='nav-item'>
+                  <a className='nav-link' href='/'>
+                    Chi tiết
+                  </a>
+                </li>
+                <li className='nav-item'>
+                  <a className='nav-link'>Liên hệ</a>
+                </li>
+              </ul>
+              <form className='d-flex'>
+                <input
+                  className='form-control me-2'
+                  type='search'
+                  placeholder='Search'
+                  aria-label='Search'
+                />
+                <button
+                  className='btn btn-outline-success'
+                  type='submit'
+                >
+                  Search
+                </button>
+              </form>
             </div>
-            <Result></Result>
-            <ToastContainer
-                draggable
-                closeOnClick
-                position="top-right"
-                theme='dark'
-            />
-        </ModalContext.Provider>
-    );
+          </div>
+        </nav>
+        <Home />
+        <Result></Result>
+      </div>
+      <ToastContainer draggable closeOnClick position='top-right' />
+    </ModalContext.Provider>
+  );
 }
 
 export default App;
