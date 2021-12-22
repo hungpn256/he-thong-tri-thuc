@@ -1,5 +1,6 @@
 import { Button, Col, Form, InputNumber, Row } from 'antd';
-import React from 'react';
+import React, { userEffect } from 'react';
+import { gotoConneringRadius } from '../../controllers/gotoConneringRadius'
 import { toast } from 'react-toastify';
 // import { ModalContext } from '../../App';
 export default function Connering() {
@@ -9,14 +10,17 @@ export default function Connering() {
   //     console.log(props);
   //   };
   const onSubmit = (data) => {
-    console.log(data, 'sdas');
-    toast.success('okee');
+    gotoConneringRadius(data);
+    console.log(data);
   };
   return (
     <Form
       form={form}
       layout='vertical'
       onFinish={onSubmit}
+      onFinishFailed={() => {
+        toast.error('Vui lòng nhập đúng yêu cầu');
+      }}
       initialValues={{
         goc_lai: 0,
         goc_muc_tieu: 0,
