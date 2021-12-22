@@ -7,75 +7,76 @@ import Result from './components/Result';
 import Home from './pages/home';
 export const ModalContext = createContext();
 function App() {
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    console.log('visi', visible);
-  });
-  return (
-    <ModalContext.Provider value={{ visible, setVisible }}>
-      <div className='app'>
-        <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
-          <div className='container-fluid'>
-            <a className='navbar-brand' href='/'>
-              Navbar scroll
-            </a>
-            <button
-              className='navbar-toggler'
-              type='button'
-              data-bs-toggle='collapse'
-              data-bs-target='#navbarScroll'
-              aria-controls='navbarScroll'
-              aria-expanded='false'
-              aria-label='Toggle navigation'
-            >
-              <span className='navbar-toggler-icon'></span>
-            </button>
-            <div
-              className='collapse navbar-collapse'
-              id='navbarScroll'
-            >
-              <ul className='navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll'>
-                <li className='nav-item'>
-                  <a
-                    className='nav-link active'
-                    aria-current='page'
-                    href='#'
-                  >
-                    Trang chủ
-                  </a>
-                </li>
-                <li className='nav-item'>
-                  <a className='nav-link' href='/'>
-                    Chi tiết
-                  </a>
-                </li>
-                <li className='nav-item'>
-                  <a className='nav-link'>Liên hệ</a>
-                </li>
-              </ul>
-              <form className='d-flex'>
-                <input
-                  className='form-control me-2'
-                  type='search'
-                  placeholder='Search'
-                  aria-label='Search'
-                />
-                <button
-                  className='btn btn-outline-success'
-                  type='submit'
-                >
-                  Search
-                </button>
-              </form>
+    const [visible, setVisible] = useState(false);
+    const [content, setContent] = useState('');
+    useEffect(() => {
+        console.log('visi', visible);
+    });
+    return (
+        <ModalContext.Provider value={{ visible, setVisible, setContent }}>
+            <div className='app'>
+                <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
+                    <div className='container-fluid'>
+                        <a className='navbar-brand' href='/'>
+                            Navbar scroll
+                        </a>
+                        <button
+                            className='navbar-toggler'
+                            type='button'
+                            data-bs-toggle='collapse'
+                            data-bs-target='#navbarScroll'
+                            aria-controls='navbarScroll'
+                            aria-expanded='false'
+                            aria-label='Toggle navigation'
+                        >
+                            <span className='navbar-toggler-icon'></span>
+                        </button>
+                        <div
+                            className='collapse navbar-collapse'
+                            id='navbarScroll'
+                        >
+                            <ul className='navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll'>
+                                <li className='nav-item'>
+                                    <a
+                                        className='nav-link active'
+                                        aria-current='page'
+                                        href='#'
+                                    >
+                                        Trang chủ
+                                    </a>
+                                </li>
+                                <li className='nav-item'>
+                                    <a className='nav-link' href='/'>
+                                        Chi tiết
+                                    </a>
+                                </li>
+                                <li className='nav-item'>
+                                    <a className='nav-link'>Liên hệ</a>
+                                </li>
+                            </ul>
+                            <form className='d-flex'>
+                                <input
+                                    className='form-control me-2'
+                                    type='search'
+                                    placeholder='Search'
+                                    aria-label='Search'
+                                />
+                                <button
+                                    className='btn btn-outline-success'
+                                    type='submit'
+                                >
+                                    Search
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+                <Home />
+                <Result content={content} setContent={setContent}></Result>
             </div>
-          </div>
-        </nav>
-        <Home />
-        <Result></Result>
-      </div>
-      <ToastContainer draggable closeOnClick position='top-right' />
-    </ModalContext.Provider>
-  );
+            <ToastContainer draggable closeOnClick position='top-right' />
+        </ModalContext.Provider>
+    );
 }
 
 export default App;
