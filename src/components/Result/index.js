@@ -2,21 +2,20 @@ import { Modal } from 'antd';
 import React, { useContext } from 'react';
 import { ModalContext } from '../../App';
 
-const Result = () => {
-  const { visible, setVisible } = useContext(ModalContext);
-  return (
-    <>
-      <Modal
-        title='Result'
-        centered
-        visible={visible}
-        onOk={() => setVisible(false)}
-        onCancel={() => setVisible(false)}
-        width={1000}
-      >
-        <div>result</div>
-      </Modal>
-    </>
-  );
+const Result = ({ content, setContent }) => {
+    return (
+        <>
+            <Modal
+                title='Kết quả'
+                centered
+                visible={content?.length}
+                onOk={() => setContent('')}
+                onCancel={() => setContent('')}
+                width={1000}
+            >
+                <div>{content}</div>
+            </Modal>
+        </>
+    );
 };
 export default Result;

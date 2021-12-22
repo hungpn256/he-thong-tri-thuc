@@ -1,6 +1,6 @@
 import DistanceTarget from '../utils/DistanceTarget';
 import OutputPendalAngle1 from '../utils/OutputPedalAngle1';
-import OutputWheelAngle1 from '../utils/OutputPedalAngle1';
+import OutputWheelAngle1 from '../utils/OutputWheelAngle1';
 import RelativeSpeed from '../utils/RelativeSpeed';
 import SpeedCurrent from '../utils/SpeedCurrent';
 import SteeringAngleCurrent from '../utils/SteeringAngleCurrent';
@@ -220,9 +220,27 @@ export const gotoTarget = (data) => {
 
     const outputWheelAngle1 = new OutputWheelAngle1()
     const outputPendalAngle1 = new OutputPendalAngle1()
-    console.log(resultAngle);
-    resultAngle.forEach((i) => {
-
+    const outputWheelAngle1Available = resultAngle.map((i) => {
+        return outputWheelAngle1.arrTrimfTrap.find((item) => item.label === i.label)
     })
-    console.log(resultPedal);
+    console.log("🚀 ~ file: gotoTarget.js ~ line 226 ~ outputWheelAngle1Available ~ outputWheelAngle1Available", outputWheelAngle1Available)
+    const denominatorWheel = resultAngle.reduce((cur, item) => cur + item.value, 0)
+    console.log("🚀 ~ file: gotoTarget.js ~ line 227 ~ gotoTarget ~ denominatorWheel", denominatorWheel)
+    const numeratorWheel = outputWheelAngle1Available.reduce((cur, item, index) => cur + item.getValueX(resultAngle[index].value) * resultAngle[index].value, 0)
+    console.log("🚀 ~ file: gotoTarget.js ~ line 229 ~ gotoTarget ~ numeratorWheel", numeratorWheel)
+    console.log("🚀 ~ file: gotoTarget.js ~ line 231 ~ gotoTarget ~ denominatorWheel", numeratorWheel / denominatorWheel)
+    const outputPendalAngle1Available = resultPedal.map((i) => {
+        return outputPendalAngle1.arrTrimfTrap.find((item) => item.label === i.label)
+    })
+    console.log("🚀 ~ file: gotoTarget.js ~ line 234 ~ outputPendalAngle1Available ~ outputPendalAngle1Available", outputPendalAngle1Available)
+    const denominatorPedal = resultPedal.reduce((cur, item) => cur + item.value, 0)
+    console.log("🚀 ~ file: gotoTarget.js ~ line 235 ~ gotoTarget ~ denominatorPedal", denominatorPedal)
+    const numeratorPedal = outputPendalAngle1Available.reduce((cur, item, index) => cur + item.getValueX(resultPedal[index].value) * resultPedal[index].value, 0)
+    console.log("🚀 ~ file: gotoTarget.js ~ line 237 ~ gotoTarget ~ numeratorPedal", numeratorPedal)
+    console.log("🚀 ~ file: gotoTarget.js ~ line 238 ~ gotoTarget ~ denominatorPedal", numeratorPedal / denominatorPedal)
+
+    return {
+        resultWheel: numeratorWheel / denominatorWheel,
+        resultPedal: numeratorPedal / denominatorPedal
+    }
 };
