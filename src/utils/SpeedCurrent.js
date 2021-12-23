@@ -1,6 +1,5 @@
 import MemberShipFunction from './MemberShipFunction';
 import Trap from './Trap';
-import Trimf from './Trimf';
 
 class SpeedCurrent extends MemberShipFunction {
   constructor() {

@@ -1,20 +1,26 @@
 import { Button, Col, Form, InputNumber, Row } from 'antd';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { toast } from 'react-toastify';
+import { ModalContext } from '../../App';
+import { avoidCollision } from '../../controllers/avoidCollision';
 // import { ModalContext } from '../../App';
 export default function AvoidCollision() {
     const [distance, setDistance] = useState(0);
     const [form] = Form.useForm();
-    // const { visible, setVisible } = useContext(ModalContext)
+    const { setContent } = useContext(ModalContext);
+
     const onSubmit = (data) => {
-        console.log(data, 'sdas');
-        toast.success('okee');
+        const result = avoidCollision(data);
+        setContent(`Góc lệch bánh xe ${Math.round(result.resultAngle * 100) / 100}, Góc đạp ga,phanh ${Math.round(result.resultPedal * 100) / 100}`)
     };
     return (
         <Form
             form={form}
             layout='vertical'
             onFinish={onSubmit}
+            onFinishFailed={() => {
+                toast.error('Vui lòng nhập đúng yêu cầu');
+            }}
             initialValues={{
                 khoang_cach: 0,
                 goc_lai: 0,
@@ -71,19 +77,6 @@ export default function AvoidCollision() {
                         />
                     </Form.Item>
                 </Col>
-                <Col span={8}>
-                    <Form.Item
-                        label="Góc lái hiện tại (độ)"
-                        rules={[
-                            { required: true, message: "Góc lái phải là số" },
-                            { type: 'number', min: -65, max: 65, message: 'Góc lái là số từ -65 đến 65' }
-                        ]}
-                        name="goc_lai"
-                    >
-                        <InputNumber placeholder="từ -65 đến 65 độ" style={{ width: '100%' }} />
-                    </Form.Item>
-                </Col>
-
                 <Col span={8}>
                     <Form.Item
                         label="Vận tốc hiện tại (m/s)"

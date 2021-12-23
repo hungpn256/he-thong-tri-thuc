@@ -1,17 +1,15 @@
 import { Button, Col, Form, InputNumber, Row } from 'antd';
-import React, { userEffect } from 'react';
+import React, { useContext, userEffect } from 'react';
 import { gotoConneringRadius } from '../../controllers/gotoConneringRadius'
 import { toast } from 'react-toastify';
-// import { ModalContext } from '../../App';
+import { ModalContext } from '../../App';
 export default function Connering() {
   const [form] = Form.useForm();
-  //   const { visible, setVisible } = useContext(ModalContext);
-  //   const onRequiredTypeChange = (props) => {
-  //     console.log(props);
-  //   };
+  const { setContent } = useContext(ModalContext);
+
   const onSubmit = (data) => {
-    gotoConneringRadius(data);
-    console.log(data);
+    const result = gotoConneringRadius(data);
+    setContent(`Góc lệch bánh xe ${Math.round(result.resultWheel * 100) / 100}, Góc đạp ga,phanh ${Math.round(result.resultPedal * 100) / 100}`)
   };
   return (
     <Form
