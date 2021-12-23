@@ -1,8 +1,7 @@
 import MemberShipFunction from './MemberShipFunction';
 import Trap from './Trap';
-import Trimf from './Trimf';
 
-class DistanceToObstacle extends MemberShipFunction {
+class DistanceToObstacle2 extends MemberShipFunction {
   constructor() {
     super([
       new Trap('Z', -9999, -9999, 1.5, 3),
@@ -11,4 +10,4 @@ class DistanceToObstacle extends MemberShipFunction {
     ]);
   }
 }
-export default DistanceToObstacle;
+export default DistanceToObstacle2;
