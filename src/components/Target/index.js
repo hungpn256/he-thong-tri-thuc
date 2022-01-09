@@ -26,7 +26,7 @@ export default function Target() {
         goc_lai: Math.random() * 130 - 65,
         goc_muc_tieu: Math.random() * 240 - 120,
         van_toc_hien_tai: Math.random() * 25,
-        van_toc_tuong_doi: Math.random() * 0.2 - 0.1,
+        van_toc_tuong_doi: Math.random() * 2 - 1,
         khoang_cach: Math.random() * 300,
       };
       str += `Góc lái: ${data.goc_lai} <br/>
@@ -137,15 +137,15 @@ export default function Target() {
               },
               {
                 type: 'number',
-                min: -0.1,
-                max: 0.1,
-                message: 'Vận tốc tương đối là số từ -0.1 đến 0.1',
+                min: -1,
+                max: 1,
+                message: 'Vận tốc tương đối là số từ -1 đến 1',
               },
             ]}
             name='van_toc_tuong_doi'
           >
             <InputNumber
-              placeholder='từ -0.1 đến 0.1'
+              placeholder='từ -1 đến 1'
               style={{ width: '100%' }}
             />
           </Form.Item>
