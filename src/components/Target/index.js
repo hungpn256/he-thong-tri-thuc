@@ -1,4 +1,4 @@
-import { Button, Col, Form, InputNumber, Row } from 'antd';
+import { Button, Col, Form, InputNumber, Row, Table } from 'antd';
 import React, { useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { gotoTarget } from '../../controllers/gotoTarget';
@@ -20,28 +20,91 @@ export default function Target() {
   };
 
   const generateData = () => {
-    let str = '';
+    const columns = [
+      {
+        title: 'Góc lái',
+        dataIndex: 'goc_lai',
+        key: 'goc_lai',
+      },
+      {
+        title: 'Góc tới mục tiêu',
+        dataIndex: 'goc_muc_tieu',
+        key: 'goc_muc_tieu',
+      },
+      {
+        title: 'Vận tốc hiện tại',
+        dataIndex: 'van_toc_hien_tai',
+        key: 'van_toc_hien_tai',
+      },
+      {
+        title: 'Vận tốc tương đối',
+        dataIndex: 'van_toc_tuong_doi',
+        key: 'van_toc_tuong_doi',
+      },
+      {
+        title: 'Khoảng cách',
+        dataIndex: 'khoang_cach',
+        key: 'khoang_cach',
+      },
+      {
+        title: 'Kết luận',
+        dataIndex: 'result',
+        key: 'result',
+        render: function (result) {
+          return `Cần xoay góc bánh xe sang bên ${
+            result.resultWheel > 0 ? 'phải' : 'trái'
+          } một góc: ${Math.abs(result.resultWheel).toFixed(
+            2,
+          )} độ, và ${
+            result.resultPedal > 0
+              ? 'ấn ga thêm một góc: ' +
+                Math.abs(result.resultPedal).toFixed(2) +
+                ' độ'
+              : result.resultPedal === 0
+              ? 'giữ nguyên chân ga'
+              : 'nhả ga ấn phanh thêm một góc: ' +
+                Math.abs(result.resultPedal).toFixed(2) +
+                ' độ'
+          }`;
+        },
+      },
+    ];
+    let dataTable = [];
     for (let i = 0; i < 10; i++) {
-      const data = {
-        goc_lai: Math.random() * 130 - 65,
-        goc_muc_tieu: Math.random() * 240 - 120,
-        van_toc_hien_tai: Math.random() * 25,
-        van_toc_tuong_doi: Math.random() * 2 - 1,
-        khoang_cach: Math.random() * 300,
+      let data = {
+        goc_lai: Math.round((Math.random() * 130 - 65) * 100) / 100,
+        goc_muc_tieu:
+          Math.round((Math.random() * 240 - 120) * 100) / 100,
+        van_toc_hien_tai: Math.round(Math.random() * 25 * 100) / 100,
+        van_toc_tuong_doi:
+          Math.round((Math.random() * 2 - 1) * 100) / 100,
+        khoang_cach: Math.round(Math.random() * 300 * 100) / 100,
       };
-      str += `Góc lái: ${data.goc_lai} <br/>
-        goc_muc_tieu: ${data.goc_muc_tieu}, <br/>
-        van_toc_hien_tai: ${data.van_toc_hien_tai},<br/>
-        van_toc_tuong_doi: ${data.van_toc_tuong_doi},<br/>
-        khoang_cach: ${data.khoang_cach},<br/>`;
+      //   str += `Góc lái: ${data.goc_lai} <br/>
+      //     goc_muc_tieu: ${data.goc_muc_tieu}, <br/>
+      //     van_toc_hien_tai: ${data.van_toc_hien_tai},<br/>
+      //     van_toc_tuong_doi: ${data.van_toc_tuong_doi},<br/>
+      //     khoang_cach: ${data.khoang_cach},<br/>`;
+      //   const result = gotoTarget(data);
+      //   str += `Góc quay bánh xe ${
+      //     Math.round(result.resultWheel * 100) / 100
+      //   }, Góc đạp ga,phanh ${
+      //     Math.round(result.resultPedal * 100) / 100
+      //   }<br/><br/><br/>`;
+
       const result = gotoTarget(data);
-      str += `Góc quay bánh xe ${
-        Math.round(result.resultWheel * 100) / 100
-      }, Góc đạp ga,phanh ${
-        Math.round(result.resultPedal * 100) / 100
-      }<br/><br/><br/>`;
+      data.result = result;
+      dataTable.push(data);
     }
-    setContent(str);
+    const table = (
+      <Table
+        className='mt-2'
+        columns={columns}
+        dataSource={dataTable}
+        pagination={false}
+      />
+    );
+    setContent(table);
   };
 
   return (
@@ -179,7 +242,7 @@ export default function Target() {
         <Button type='primary' htmlType='submit'>
           Submit
         </Button>
-        <Button type='primary' onClick={generateData}>
+        <Button className='m-3' type='primary' onClick={generateData}>
           GenerateData
         </Button>
       </Form.Item>

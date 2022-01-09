@@ -5,7 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Result from './components/Result';
 import Home from './pages/home';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
+import Map from './pages/Map';
+import Document from './pages/Document';
 
 export const ModalContext = createContext();
 function App() {
@@ -22,9 +24,9 @@ function App() {
         <div className='app'>
           <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
             <div className='container-fluid'>
-              <a className='navbar-brand' href='/'>
-                Navbar scroll
-              </a>
+              <Link className='navbar-brand' to='/'>
+                Lái xe tự động
+              </Link>
               <button
                 className='navbar-toggler'
                 type='button'
@@ -42,21 +44,23 @@ function App() {
               >
                 <ul className='navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll'>
                   <li className='nav-item'>
-                    <a
+                    <Link
                       className='nav-link active'
                       aria-current='page'
-                      href='#'
+                      to='/'
                     >
                       Trang chủ
-                    </a>
+                    </Link>
                   </li>
                   <li className='nav-item'>
-                    <a className='nav-link' href='/'>
-                      Chi tiết
-                    </a>
+                    <Link className='nav-link' to='/document'>
+                      Tài liệu
+                    </Link>
                   </li>
                   <li className='nav-item'>
-                    <a className='nav-link'>Liên hệ</a>
+                    <Link className='nav-link' to='/map'>
+                      Map
+                    </Link>
                   </li>
                 </ul>
                 <form className='d-flex'>
@@ -79,6 +83,8 @@ function App() {
 
           <Routes>
             <Route path='/' element={<Home />}></Route>
+            <Route path='/map' element={<Map />}></Route>
+            <Route path='/document' element={<Document />}></Route>
           </Routes>
         </div>
         <Result content={content} setContent={setContent}></Result>

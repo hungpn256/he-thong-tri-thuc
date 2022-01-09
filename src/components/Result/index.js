@@ -8,12 +8,12 @@ const Result = ({ content, setContent }) => {
       <Modal
         title='Kết quả'
         centered
-        visible={content?.length}
+        visible={content}
         onOk={() => setContent('')}
         onCancel={() => setContent('')}
         width={1000}
       >
-        <div dangerouslySetInnerHTML={{ __html: content }}></div>
+        <div>{content}</div>
       </Modal>
     </>
   );
