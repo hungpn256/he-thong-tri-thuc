@@ -100,17 +100,17 @@ export const gotoConneringRadius = (data) => {
                 } else if (i1.label === 'Z' && i2.label === 'S' && i3.label === 'P') {
                     label = 'Z'
                 } else if (i1.label === 'Z' && i2.label === 'M' && i3.label === 'N') {
-                    label = 'Z'
+                    label = 'PB'
                 } else if (i1.label === 'Z' && i2.label === 'M' && i3.label === 'Z') {
-                    label = 'Z'
+                    label = 'PB'
                 } else if (i1.label === 'Z' && i2.label === 'M' && i3.label === 'P') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'Z' && i2.label === 'B' && i3.label === 'N') {
-                    label = 'PS'
+                    label = 'PB'
                 } else if (i1.label === 'Z' && i2.label === 'B' && i3.label === 'Z') {
-                    label = 'PS'
+                    label = 'PB'
                 } else if (i1.label === 'Z' && i2.label === 'B' && i3.label === 'P') {
-                    label = 'PS'
+                    label = 'PB'
                 } else if (i1.label === 'S' && i2.label === 'S' && i3.label === 'N') {
                     label = 'Z'
                 } else if (i1.label === 'S' && i2.label === 'S' && i3.label === 'Z') {
@@ -118,47 +118,47 @@ export const gotoConneringRadius = (data) => {
                 } else if (i1.label === 'S' && i2.label === 'S' && i3.label === 'P') {
                     label = 'NS'
                 } else if (i1.label === 'S' && i2.label === 'M' && i3.label === 'N') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'S' && i2.label === 'M' && i3.label === 'Z') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'S' && i2.label === 'M' && i3.label === 'P') {
                     label = 'Z'
                 } else if (i1.label === 'S' && i2.label === 'B' && i3.label === 'N') {
-                    label = 'PS'
+                    label = 'PB'
                 } else if (i1.label === 'S' && i2.label === 'B' && i3.label === 'Z') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'S' && i2.label === 'B' && i3.label === 'P') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'M' && i2.label === 'S' && i3.label === 'N') {
-                    label = 'Z'
+                    label = 'NS'
                 } else if (i1.label === 'M' && i2.label === 'S' && i3.label === 'Z') {
-                    label = 'NS'
+                    label = 'NM'
                 } else if (i1.label === 'M' && i2.label === 'S' && i3.label === 'P') {
-                    label = 'NS'
+                    label = 'NM'
                 } else if (i1.label === 'M' && i2.label === 'M' && i3.label === 'N') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'M' && i2.label === 'M' && i3.label === 'Z') {
                     label = 'Z'
                 } else if (i1.label === 'M' && i2.label === 'M' && i3.label === 'P') {
-                    label = 'NS'
+                    label = 'Z'
                 } else if (i1.label === 'M' && i2.label === 'B' && i3.label === 'N') {
                     label = 'PS'
                 } else if (i1.label === 'M' && i2.label === 'B' && i3.label === 'Z') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'M' && i2.label === 'B' && i3.label === 'P') {
                     label = 'Z'
                 } else if (i1.label === 'B' && i2.label === 'S' && i3.label === 'N') {
                     label = 'NS'
                 } else if (i1.label === 'B' && i2.label === 'S' && i3.label === 'Z') {
-                    label = 'NS'
+                    label = 'NM'
                 } else if (i1.label === 'B' && i2.label === 'S' && i3.label === 'P') {
-                    label = 'NS'
+                    label = 'NB'
                 } else if (i1.label === 'B' && i2.label === 'M' && i3.label === 'N') {
                     label = 'Z'
                 } else if (i1.label === 'B' && i2.label === 'M' && i3.label === 'Z') {
-                    label = 'Z'
-                } else if (i1.label === 'B' && i2.label === 'M' && i3.label === 'P') {
                     label = 'NS'
+                } else if (i1.label === 'B' && i2.label === 'M' && i3.label === 'P') {
+                    label = 'NM'
                 } else if (i1.label === 'B' && i2.label === 'B' && i3.label === 'N') {
                     label = 'Z'
                 } else if (i1.label === 'B' && i2.label === 'B' && i3.label === 'Z') {
