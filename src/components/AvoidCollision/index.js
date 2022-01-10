@@ -12,10 +12,8 @@ export default function AvoidCollision() {
   const onSubmit = (data) => {
     const result = avoidCollision(data);
     setContent(
-      `Góc lệch bánh xe ${
-        Math.round(result.resultAngle * 100) / 100
-      }, Góc đạp ga,phanh ${
-        Math.round(result.resultPedal * 100) / 100
+      `Góc lệch bánh xe ${Math.round(result.resultAngle * 100) / 100
+      }, Góc đạp ga,phanh ${Math.round(result.resultPedal * 100) / 100
       }`,
     );
   };
@@ -25,7 +23,7 @@ export default function AvoidCollision() {
     for (let i = 0; i < 10; i++) {
       const data = {
         khoang_cach: Math.random() * 80,
-        goc_lai: Math.random() * 130 - 65,
+        goc_lai: Math.random() * 100 - 50,
         goc_muc_tieu: Math.random() * 240 - 120,
         van_toc_hien_tai: Math.random() * 25,
         van_toc_tuong_doi: Math.random() * 2 - 1,
@@ -38,11 +36,9 @@ export default function AvoidCollision() {
             huong_chuong_ngai_vat: ${data.huong_chuong_ngai_vat},<br/>
             khoang_cach: ${data.khoang_cach},<br/>`;
       const result = avoidCollision(data);
-      str += `Góc quay bánh xe ${
-        Math.round(result.resultAngle * 100) / 100
-      }, Góc đạp ga,phanh ${
-        Math.round(result.resultPedal * 100) / 100
-      }<br/><br/><br/>`;
+      str += `Góc quay bánh xe ${Math.round(result.resultAngle * 100) / 100
+        }, Góc đạp ga,phanh ${Math.round(result.resultPedal * 100) / 100
+        }<br/><br/><br/>`;
     }
     setContent(str);
   };
@@ -98,15 +94,15 @@ export default function AvoidCollision() {
               { required: true, message: 'Góc lái phải là số' },
               {
                 type: 'number',
-                min: -65,
-                max: 65,
-                message: 'Góc lái là số từ -65 đến 65',
+                min: -50,
+                max: 50,
+                message: 'Góc lái là số từ -50 đến 50',
               },
             ]}
             name='goc_lai'
           >
             <InputNumber
-              placeholder='từ -65 đến 65 độ'
+              placeholder='từ -50 đến 50 độ'
               style={{ width: '100%' }}
             />
           </Form.Item>

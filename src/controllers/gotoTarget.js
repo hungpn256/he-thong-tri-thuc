@@ -28,7 +28,7 @@ export const gotoTarget = (data) => {
       if (i1.label === 'NB' && i2.label === 'NB') {
         label = 'Z';
       } else if (i1.label === 'NB' && i2.label === 'NM') {
-        label = 'PM';
+        label = 'Z';
       } else if (i1.label === 'NB' && i2.label === 'Z') {
         label = 'PM';
       } else if (i1.label === 'NB' && i2.label === 'PM') {
@@ -36,7 +36,7 @@ export const gotoTarget = (data) => {
       } else if (i1.label === 'NB' && i2.label === 'PB') {
         label = 'PB';
       } else if (i1.label === 'NM' && i2.label === 'NB') {
-        label = 'Z';
+        label = 'NM';
       } else if (i1.label === 'NM' && i2.label === 'NM') {
         label = 'Z';
       } else if (i1.label === 'NM' && i2.label === 'Z') {
@@ -54,7 +54,7 @@ export const gotoTarget = (data) => {
       } else if (i1.label === 'Z' && i2.label === 'PM') {
         label = 'PM';
       } else if (i1.label === 'Z' && i2.label === 'PB') {
-        label = 'PM';
+        label = 'PB';
       } else if (i1.label === 'PM' && i2.label === 'NB') {
         label = 'NB';
       } else if (i1.label === 'PM' && i2.label === 'NM') {
@@ -64,15 +64,15 @@ export const gotoTarget = (data) => {
       } else if (i1.label === 'PM' && i2.label === 'PM') {
         label = 'Z';
       } else if (i1.label === 'PM' && i2.label === 'PB') {
-        label = 'Z';
+        label = 'PM';
       } else if (i1.label === 'PB' && i2.label === 'NB') {
         label = 'NB';
       } else if (i1.label === 'PB' && i2.label === 'NM') {
         label = 'NB';
       } else if (i1.label === 'PB' && i2.label === 'Z') {
-        label = 'NM';
+        label = 'NB';
       } else if (i1.label === 'PB' && i2.label === 'PM') {
-        label = 'NM';
+        label = 'Z';
       } else if (i1.label === 'PB' && i2.label === 'PB') {
         label = 'Z';
       }
@@ -430,7 +430,7 @@ export const gotoTarget = (data) => {
     (cur, item, index) =>
       cur +
       item.getValueX(resultAngle[index].value) *
-        resultAngle[index].value,
+      resultAngle[index].value,
     0,
   );
   console.log(
@@ -462,7 +462,7 @@ export const gotoTarget = (data) => {
     (cur, item, index) =>
       cur +
       item.getValueX(resultPedal[index].value) *
-        resultPedal[index].value,
+      resultPedal[index].value,
     0,
   );
   console.log(

@@ -11,10 +11,8 @@ export default function Target() {
   const onSubmit = (data) => {
     const result = gotoTarget(data);
     setContent(
-      `Góc quay bánh xe ${
-        Math.round(result.resultWheel * 100) / 100
-      }, Góc đạp ga,phanh ${
-        Math.round(result.resultPedal * 100) / 100
+      `Góc quay bánh xe ${Math.round(result.resultWheel * 100) / 100
+      }, Góc đạp ga,phanh ${Math.round(result.resultPedal * 100) / 100
       }`,
     );
   };
@@ -51,21 +49,19 @@ export default function Target() {
         dataIndex: 'result',
         key: 'result',
         render: function (result) {
-          return `Cần xoay góc bánh xe sang bên ${
-            result.resultWheel > 0 ? 'phải' : 'trái'
-          } một góc: ${Math.abs(result.resultWheel).toFixed(
-            2,
-          )} độ, và ${
-            result.resultPedal > 0
+          return `Cần xoay góc bánh xe sang bên ${result.resultWheel > 0 ? 'phải' : 'trái'
+            } một góc: ${Math.abs(result.resultWheel).toFixed(
+              2,
+            )} độ, và ${result.resultPedal > 0
               ? 'ấn ga thêm một góc: ' +
-                Math.abs(result.resultPedal).toFixed(2) +
-                ' độ'
+              Math.abs(result.resultPedal).toFixed(2) +
+              ' độ'
               : result.resultPedal === 0
-              ? 'giữ nguyên chân ga'
-              : 'nhả ga ấn phanh thêm một góc: ' +
+                ? 'giữ nguyên chân ga'
+                : 'nhả ga ấn phanh thêm một góc: ' +
                 Math.abs(result.resultPedal).toFixed(2) +
                 ' độ'
-          }`;
+            }`;
         },
       },
     ];
@@ -131,15 +127,15 @@ export default function Target() {
               { required: true, message: 'Góc lái phải là số' },
               {
                 type: 'number',
-                min: -65,
-                max: 65,
-                message: 'Góc lái là số từ -65 đến 65',
+                min: -50,
+                max: 50,
+                message: 'Góc lái là số từ -50 đến 50',
               },
             ]}
             name='goc_lai'
           >
             <InputNumber
-              placeholder='từ -65 đến 65 độ'
+              placeholder='từ -50 đến 50 độ'
               style={{ width: '100%' }}
             />
           </Form.Item>
