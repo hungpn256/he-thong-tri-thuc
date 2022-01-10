@@ -284,35 +284,35 @@ export const avoidCollision = (data) => {
                 } else if (i1.label === 'Z' && i2.label === 'Z' && i3.label === 'Z') {
                     label = 'PS'
                 } else if (i1.label === 'Z' && i2.label === 'Z' && i3.label === 'P') {
-                    label = 'NS'
+                    label = 'Z'
                 } else if (i1.label === 'Z' && i2.label === 'S' && i3.label === 'N') {
-                    label = 'PS'
+                    label = 'PB'
                 } else if (i1.label === 'Z' && i2.label === 'S' && i3.label === 'Z') {
                     label = 'PS'
                 } else if (i1.label === 'Z' && i2.label === 'S' && i3.label === 'P') {
                     label = 'Z'
                 } else if (i1.label === 'Z' && i2.label === 'B' && i3.label === 'N') {
-                    label = 'Z'
+                    label = 'PB'
                 } else if (i1.label === 'Z' && i2.label === 'B' && i3.label === 'Z') {
-                    label = 'Z'
+                    label = 'PB'
                 } else if (i1.label === 'Z' && i2.label === 'B' && i3.label === 'P') {
-                    label = 'Z'
+                    label = 'PB'
                 } else if (i1.label === 'S' && i2.label === 'Z' && i3.label === 'N') {
-                    label = 'PS'
+                    label = 'Z'
                 } else if (i1.label === 'S' && i2.label === 'Z' && i3.label === 'Z') {
-                    label = 'PS'
+                    label = 'Z'
                 } else if (i1.label === 'S' && i2.label === 'Z' && i3.label === 'P') {
                     label = 'NS'
                 } else if (i1.label === 'S' && i2.label === 'S' && i3.label === 'N') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'S' && i2.label === 'S' && i3.label === 'Z') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'S' && i2.label === 'S' && i3.label === 'P') {
-                    label = 'NS'
+                    label = 'Z'
                 } else if (i1.label === 'S' && i2.label === 'B' && i3.label === 'N') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'S' && i2.label === 'B' && i3.label === 'Z') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'S' && i2.label === 'B' && i3.label === 'P') {
                     label = 'Z'
                 } else if (i1.label === 'M' && i2.label === 'Z' && i3.label === 'N') {
@@ -328,13 +328,13 @@ export const avoidCollision = (data) => {
                 } else if (i1.label === 'M' && i2.label === 'S' && i3.label === 'P') {
                     label = 'NB'
                 } else if (i1.label === 'M' && i2.label === 'B' && i3.label === 'N') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'M' && i2.label === 'B' && i3.label === 'Z') {
-                    label = 'Z'
+                    label = 'PS'
                 } else if (i1.label === 'M' && i2.label === 'B' && i3.label === 'P') {
                     label = 'Z'
                 } else if (i1.label === 'B' && i2.label === 'Z' && i3.label === 'N') {
-                    label = 'NS'
+                    label = 'NB'
                 } else if (i1.label === 'B' && i2.label === 'Z' && i3.label === 'Z') {
                     label = 'NB'
                 } else if (i1.label === 'B' && i2.label === 'Z' && i3.label === 'P') {
@@ -342,7 +342,7 @@ export const avoidCollision = (data) => {
                 } else if (i1.label === 'B' && i2.label === 'S' && i3.label === 'N') {
                     label = 'NS'
                 } else if (i1.label === 'B' && i2.label === 'S' && i3.label === 'Z') {
-                    label = 'NS'
+                    label = 'NB'
                 } else if (i1.label === 'B' && i2.label === 'S' && i3.label === 'P') {
                     label = 'NB'
                 } else if (i1.label === 'B' && i2.label === 'B' && i3.label === 'N') {
