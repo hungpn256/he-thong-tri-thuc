@@ -20,7 +20,7 @@ export const gotoConneringRadius = (data) => {
             if (i1.label === 'NB' && i2.label === 'NB') {
                 label = 'Z';
             } else if (i1.label === 'NB' && i2.label === 'NM') {
-                label = 'PM';
+                label = 'Z';
             } else if (i1.label === 'NB' && i2.label === 'Z') {
                 label = 'PM';
             } else if (i1.label === 'NB' && i2.label === 'PM') {
@@ -28,7 +28,7 @@ export const gotoConneringRadius = (data) => {
             } else if (i1.label === 'NB' && i2.label === 'PB') {
                 label = 'PB';
             } else if (i1.label === 'NM' && i2.label === 'NB') {
-                label = 'Z';
+                label = 'NM';
             } else if (i1.label === 'NM' && i2.label === 'NM') {
                 label = 'Z';
             } else if (i1.label === 'NM' && i2.label === 'Z') {
@@ -46,7 +46,7 @@ export const gotoConneringRadius = (data) => {
             } else if (i1.label === 'Z' && i2.label === 'PM') {
                 label = 'PM';
             } else if (i1.label === 'Z' && i2.label === 'PB') {
-                label = 'PM';
+                label = 'PB';
             } else if (i1.label === 'PM' && i2.label === 'NB') {
                 label = 'NB';
             } else if (i1.label === 'PM' && i2.label === 'NM') {
@@ -56,37 +56,37 @@ export const gotoConneringRadius = (data) => {
             } else if (i1.label === 'PM' && i2.label === 'PM') {
                 label = 'Z';
             } else if (i1.label === 'PM' && i2.label === 'PB') {
-                label = 'Z';
+                label = 'PM';
             } else if (i1.label === 'PB' && i2.label === 'NB') {
                 label = 'NB';
             } else if (i1.label === 'PB' && i2.label === 'NM') {
                 label = 'NB';
             } else if (i1.label === 'PB' && i2.label === 'Z') {
-                label = 'NM';
+                label = 'NB';
             } else if (i1.label === 'PB' && i2.label === 'PM') {
-                label = 'NM';
+                label = 'Z';
             } else if (i1.label === 'PB' && i2.label === 'PB') {
                 label = 'Z';
             }
             if (label !== '') {
+                const x = resultAngle.filter((i) => {
+                    return i.label === label;
+                });
                 const value = Math.min(
                     i1.getValueY(data.goc_lai),
                     i2.getValueY(data.goc_muc_tieu),
-                )
-                const x = resultAngle.filter((i) => {
-                    return i.label === label
-                })
+                );
                 if (x.length) {
-                    x[0].value = Math.max(x[0].value, value)
+                    x[0].value = Math.max(x[0].value, value);
                 } else {
                     resultAngle.push({
                         label,
                         value,
-                    })
+                    });
                 }
             }
-        })
-    })
+        });
+    });
 
     let resultPedal = []
     speedCurrentAvailable.forEach((i1) => {

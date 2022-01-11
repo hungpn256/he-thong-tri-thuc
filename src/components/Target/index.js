@@ -78,25 +78,14 @@ export default function Target() {
         let dataTable = [];
         for (let i = 0; i < 10; i++) {
             let data = {
-                goc_lai: Math.round((Math.random() * 130 - 65) * 100) / 100,
+                goc_lai: Math.round((Math.random() * 100 - 50) * 100) / 100,
                 goc_muc_tieu:
                     Math.round((Math.random() * 240 - 120) * 100) / 100,
                 van_toc_hien_tai: Math.round(Math.random() * 25 * 100) / 100,
                 van_toc_tuong_doi:
-                    Math.round((Math.random() * 2 - 1) * 100) / 100,
+                    Math.round((Math.random() * 5 - 2.5) * 100) / 100,
                 khoang_cach: Math.round(Math.random() * 300 * 100) / 100,
             };
-            //   str += `Góc lái: ${data.goc_lai} <br/>
-            //     goc_muc_tieu: ${data.goc_muc_tieu}, <br/>
-            //     van_toc_hien_tai: ${data.van_toc_hien_tai},<br/>
-            //     van_toc_tuong_doi: ${data.van_toc_tuong_doi},<br/>
-            //     khoang_cach: ${data.khoang_cach},<br/>`;
-            //   const result = gotoTarget(data);
-            //   str += `Góc quay bánh xe ${
-            //     Math.round(result.resultWheel * 100) / 100
-            //   }, Góc đạp ga,phanh ${
-            //     Math.round(result.resultPedal * 100) / 100
-            //   }<br/><br/><br/>`;
 
             const result = gotoTarget(data);
             data.result = result;
@@ -137,15 +126,15 @@ export default function Target() {
                             { required: true, message: 'Góc lái phải là số' },
                             {
                                 type: 'number',
-                                min: -65,
-                                max: 65,
-                                message: 'Góc lái là số từ -65 đến 65',
+                                min: -50,
+                                max: 50,
+                                message: 'Góc lái là số từ -50 đến 50',
                             },
                         ]}
                         name='goc_lai'
                     >
                         <InputNumber
-                            placeholder='từ -65 đến 65 độ'
+                            placeholder='từ -50 đến 50 độ'
                             style={{ width: '100%' }}
                         />
                     </Form.Item>
@@ -206,15 +195,15 @@ export default function Target() {
                             },
                             {
                                 type: 'number',
-                                min: -1,
-                                max: 1,
-                                message: 'Vận tốc tương đối là số từ -1 đến 1',
+                                min: -5,
+                                max: 5,
+                                message: 'Vận tốc tương đối là số từ -5 đến 5',
                             },
                         ]}
                         name='van_toc_tuong_doi'
                     >
                         <InputNumber
-                            placeholder='từ -1 đến 1'
+                            placeholder='từ -5 đến 5'
                             style={{ width: '100%' }}
                         />
                     </Form.Item>

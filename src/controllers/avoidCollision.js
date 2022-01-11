@@ -99,7 +99,7 @@ export const avoidCollision = (data) => {
                     } else if (i1.label === 'Z' && i2.label === 'Z' && i3.label === 'Z') {
                         label = 'PM'
                     } else if (i1.label === 'Z' && i2.label === 'Z' && i3.label === 'S') {
-                        label = 'NM'
+                        label = 'PM'
                     } else if (i1.label === 'Z' && i2.label === 'Z' && i3.label === 'B') {
                         label = 'Z'
                     } else if (i1.label === 'Z' && i2.label === 'PM' && i3.label === 'Z') {
@@ -133,7 +133,7 @@ export const avoidCollision = (data) => {
                     } else if (i1.label === 'PS' && i2.label === 'Z' && i3.label === 'B') {
                         label = 'Z'
                     } else if (i1.label === 'PS' && i2.label === 'PM' && i3.label === 'Z') {
-                        label = 'PS'
+                        label = 'NS'
                     } else if (i1.label === 'PS' && i2.label === 'PM' && i3.label === 'S') {
                         label = 'Z'
                     } else if (i1.label === 'PS' && i2.label === 'PM' && i3.label === 'B') {
@@ -200,78 +200,77 @@ export const avoidCollision = (data) => {
     } else {
         steeringAngleCurrentAvailable.forEach((i1) => {
             targetAngleAvailable.forEach((i2) => {
-                let label = ''
+                let label = '';
                 if (i1.label === 'NB' && i2.label === 'NB') {
-                    label = 'Z'
+                    label = 'Z';
                 } else if (i1.label === 'NB' && i2.label === 'NM') {
-                    label = 'Z'
+                    label = 'Z';
                 } else if (i1.label === 'NB' && i2.label === 'Z') {
-                    label = 'PM'
+                    label = 'PM';
                 } else if (i1.label === 'NB' && i2.label === 'PM') {
-                    label = 'PB'
+                    label = 'PB';
                 } else if (i1.label === 'NB' && i2.label === 'PB') {
-                    label = 'PB'
+                    label = 'PB';
                 } else if (i1.label === 'NM' && i2.label === 'NB') {
-                    label = 'Z'
+                    label = 'NM';
                 } else if (i1.label === 'NM' && i2.label === 'NM') {
-                    label = 'Z'
+                    label = 'Z';
                 } else if (i1.label === 'NM' && i2.label === 'Z') {
-                    label = 'Z'
+                    label = 'PM';
                 } else if (i1.label === 'NM' && i2.label === 'PM') {
-                    label = 'PB'
+                    label = 'PM';
                 } else if (i1.label === 'NM' && i2.label === 'PB') {
-                    label = 'PB'
+                    label = 'PB';
                 } else if (i1.label === 'Z' && i2.label === 'NB') {
-                    label = 'NM'
+                    label = 'NM';
                 } else if (i1.label === 'Z' && i2.label === 'NM') {
-                    label = 'NM'
+                    label = 'NM';
                 } else if (i1.label === 'Z' && i2.label === 'Z') {
-                    label = 'Z'
+                    label = 'Z';
                 } else if (i1.label === 'Z' && i2.label === 'PM') {
-                    label = 'PM'
+                    label = 'PM';
                 } else if (i1.label === 'Z' && i2.label === 'PB') {
-                    label = 'PM'
+                    label = 'PB';
                 } else if (i1.label === 'PM' && i2.label === 'NB') {
-                    label = 'NB'
+                    label = 'NB';
                 } else if (i1.label === 'PM' && i2.label === 'NM') {
-                    label = 'NM'
+                    label = 'NM';
                 } else if (i1.label === 'PM' && i2.label === 'Z') {
-                    label = 'Z'
+                    label = 'NM';
                 } else if (i1.label === 'PM' && i2.label === 'PM') {
-                    label = 'Z'
+                    label = 'Z';
                 } else if (i1.label === 'PM' && i2.label === 'PB') {
-                    label = 'Z'
+                    label = 'PM';
                 } else if (i1.label === 'PB' && i2.label === 'NB') {
-                    label = 'NB'
+                    label = 'NB';
                 } else if (i1.label === 'PB' && i2.label === 'NM') {
-                    label = 'NM'
+                    label = 'NB';
                 } else if (i1.label === 'PB' && i2.label === 'Z') {
-                    label = 'NM'
+                    label = 'NB';
                 } else if (i1.label === 'PB' && i2.label === 'PM') {
-                    label = 'Z'
+                    label = 'Z';
                 } else if (i1.label === 'PB' && i2.label === 'PB') {
-                    label = 'Z'
+                    label = 'Z';
                 }
                 if (label !== '') {
+                    const x = resultAngle.filter((i) => {
+                        return i.label === label;
+                    });
                     const value = Math.min(
                         i1.getValueY(data.goc_lai),
                         i2.getValueY(data.goc_muc_tieu),
-                    )
-                    const x = resultAngle.filter((i) => {
-                        return i.label === label
-                    })
+                    );
                     if (x.length) {
-                        x[0].value = Math.max(x[0].value, value)
+                        x[0].value = Math.max(x[0].value, value);
                     } else {
                         resultAngle.push({
                             label,
                             value,
-                        })
-                        console.log("🚀 ~ file: avoidCollision.js ~ line 269 ~ targetAngleAvailable.forEach ~ resultAngle", resultAngle)
+                        });
                     }
                 }
-            })
-        })
+            });
+        });
     }
 
     let resultPedal = []

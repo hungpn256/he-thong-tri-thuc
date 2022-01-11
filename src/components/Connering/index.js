@@ -76,20 +76,13 @@ export default function Connering() {
         ];
         let dataTable = [];
         for (let i = 0; i < 10; i++) {
-            // const data = {
-            //     goc_lai: Math.random() * 130 - 65,
-            //     goc_muc_tieu: Math.random() * 240 - 120,
-            //     van_toc_hien_tai: Math.random() * 25,
-            //     van_toc_tuong_doi: Math.random() * 2 - 1,
-            //     ban_kinh_vong_quay: Math.random() * 40,
-            // };
             let data = {
-                goc_lai: Math.round((Math.random() * 130 - 65) * 100) / 100,
+                goc_lai: Math.round((Math.random() * 100 - 50) * 100) / 100,
                 goc_muc_tieu:
                     Math.round((Math.random() * 240 - 120) * 100) / 100,
                 van_toc_hien_tai: Math.round(Math.random() * 25 * 100) / 100,
                 van_toc_tuong_doi:
-                    Math.round((Math.random() * 2 - 1) * 100) / 100,
+                    Math.round((Math.random() * 5 - 2.5) * 100) / 100,
                 ban_kinh_vong_quay: Math.round(Math.random() * 40 * 100) / 100,
             };
             const result = gotoConneringRadius(data);
@@ -200,15 +193,15 @@ export default function Connering() {
                             },
                             {
                                 type: 'number',
-                                min: -1,
-                                max: 1,
-                                message: 'Vận tốc tương đối là số từ -1 đến 1',
+                                min: -5,
+                                max: 5,
+                                message: 'Vận tốc tương đối là số từ -5 đến 5',
                             },
                         ]}
                         name='van_toc_tuong_doi'
                     >
                         <InputNumber
-                            placeholder='từ -1 đến 1'
+                            placeholder='từ -5 đến 5'
                             style={{ width: '100%' }}
                         />
                     </Form.Item>

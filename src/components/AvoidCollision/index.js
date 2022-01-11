@@ -89,7 +89,7 @@ export default function AvoidCollision() {
                 goc_lai: Math.round((Math.random() * 100 - 50) * 100) / 100,
                 goc_muc_tieu: khoang_cach > 20 ? Math.round((Math.random() * 240 - 120) * 100) / 100 : 0,
                 van_toc_hien_tai: Math.round(Math.random() * 25 * 100) / 100,
-                van_toc_tuong_doi: Math.round((Math.random() * 2 - 1) * 100) / 100,
+                van_toc_tuong_doi: Math.round((Math.random() * 5 - 2.5) * 100) / 100,
                 huong_chuong_ngai_vat: khoang_cach <= 20 ? Math.round((Math.random() * 360 - 180) * 100) / 100 : 0,
             };
             const result = avoidCollision(data);
@@ -204,15 +204,15 @@ export default function AvoidCollision() {
                             },
                             {
                                 type: 'number',
-                                min: -1,
-                                max: 1,
-                                message: 'Vận tốc tương đối là số từ -1 đến 1',
+                                min: -5,
+                                max: 5,
+                                message: 'Vận tốc tương đối là số từ -5 đến 5',
                             },
                         ]}
                         name='van_toc_tuong_doi'
                     >
                         <InputNumber
-                            placeholder='từ -1 đến 1'
+                            placeholder='từ -5 đến 5'
                             style={{ width: '100%' }}
                         />
                     </Form.Item>
