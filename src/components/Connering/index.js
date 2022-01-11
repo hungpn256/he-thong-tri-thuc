@@ -8,6 +8,10 @@ export default function Connering() {
     const { setContent } = useContext(ModalContext);
 
     const onSubmit = (data) => {
+      if(data.ban_kinh_vong_quay < 0.5){
+        toast.error("Bán kính vòng quay lớn hơn 0.5")
+        return;
+      }
         const result = gotoConneringRadius(data);
         setContent(
             `${result.resultWheel === 0 ? "Giữ nguyên góc bánh xe" : `Cần xoay góc bánh xe sang bên ${result.resultWheel > 0 ? 'phải' : 'trái'
@@ -90,7 +94,7 @@ export default function Connering() {
                 van_toc_hien_tai: Math.round(Math.random() * 25 * 100) / 100,
                 van_toc_tuong_doi:
                     Math.round((Math.random() * 2 - 1) * 100) / 100,
-                ban_kinh_vong_quay: Math.round(Math.random() * 40 * 100) / 100,
+                ban_kinh_vong_quay: Math.round((Math.random() * 39.5 + 0.5) * 100) / 100,
             };
             const result = gotoConneringRadius(data);
             data.result = result;
@@ -117,10 +121,10 @@ export default function Connering() {
             }}
             initialValues={{
                 goc_lai: 0,
-                goc_muc_tieu: 0,
+                goc_muc_tieu: 30,
                 van_toc_hien_tai: 0,
                 van_toc_tuong_doi: 0,
-                ban_kinh_vong_quay: 0,
+                ban_kinh_vong_quay: 5,
             }}
         >
             <Row gutter={[10, 10]}>
