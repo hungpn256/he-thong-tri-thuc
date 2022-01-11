@@ -131,15 +131,15 @@ export default function Connering() {
                             { required: true, message: 'Góc lái phải là số' },
                             {
                                 type: 'number',
-                                min: -65,
-                                max: 65,
-                                message: 'Góc lái là số từ -65 đến 65',
+                                min: -50,
+                                max: 50,
+                                message: 'Góc lái là số từ -50 đến 50',
                             },
                         ]}
                         name='goc_lai'
                     >
                         <InputNumber
-                            placeholder='từ -65 đến 65 độ'
+                            placeholder='từ -50 đến 50 độ'
                             style={{ width: '100%' }}
                         />
                     </Form.Item>

@@ -204,15 +204,15 @@ export default function AvoidCollision() {
                             },
                             {
                                 type: 'number',
-                                min: -0.1,
-                                max: 0.1,
-                                message: 'Vận tốc tương đối là số từ -0.1 đến 0.1',
+                                min: -1,
+                                max: 1,
+                                message: 'Vận tốc tương đối là số từ -1 đến 1',
                             },
                         ]}
                         name='van_toc_tuong_doi'
                     >
                         <InputNumber
-                            placeholder='từ -0.1 đến 0.1'
+                            placeholder='từ -1 đến 1'
                             style={{ width: '100%' }}
                         />
                     </Form.Item>

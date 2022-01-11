@@ -5,12 +5,12 @@ import Trimf from './Trimf';
 class OutputPendalAngle1 extends MemberShipFunction {
   constructor() {
     super([
-      new Trap('NB', -9999, -9999, -9, -8),
-      new Trap('NM', -9, -8, -4, -3),
-      new Trap('NS', -4, -3, -1, 0),
-      new Trimf('Z', -0.5, 0, 0.5),
-      new Trap('PS', 0, 0.5, 4, 4.5),
-      new Trap('PB', 4, 4.5, 9999, 9999),
+      new Trap('NB', -9999, -9999, -12, -10),
+      new Trap('NM', -12, -10, -6, -4),
+      new Trap('NS', -6, -4, -2, 0),
+      new Trimf('Z', -2, 0, 2),
+      new Trap('PS', 0, 3, 5, 8),
+      new Trap('PB', 5, 8, 9999, 9999),
     ]);
   }
 }

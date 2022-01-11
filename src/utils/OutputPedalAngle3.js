@@ -5,11 +5,11 @@ import Trimf from './Trimf';
 class OutputPedalAngle3 extends MemberShipFunction {
     constructor() {
         super([
-            new Trap('NB', -9999, -9999, -2.5, 2),
-            new Trap('NS', -2.5, -2, -0.5, 0),
-            new Trimf('Z', -0.5, 0, 0.5),
-            new Trap('PS', 0, 0.5, 4, 4.5),
-            new Trap('PB', 2, 2.5, 9999, 9999),
+            new Trap('NB', -9999, -9999, -10, -6),
+            new Trap('NS', -10, -6, -4, 0),
+            new Trimf('Z', -2, 0, 2),
+            new Trap('PS', 0, 4, 6, 10),
+            new Trap('PB', 6, 10, 9999, 9999),
         ]);
     }
 }
