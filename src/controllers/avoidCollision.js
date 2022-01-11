@@ -328,9 +328,9 @@ export const avoidCollision = (data) => {
                 } else if (i1.label === 'M' && i2.label === 'S' && i3.label === 'P') {
                     label = 'NB'
                 } else if (i1.label === 'M' && i2.label === 'B' && i3.label === 'N') {
-                    label = 'PS'
+                    label = 'Z'
                 } else if (i1.label === 'M' && i2.label === 'B' && i3.label === 'Z') {
-                    label = 'PS'
+                    label = 'Z'
                 } else if (i1.label === 'M' && i2.label === 'B' && i3.label === 'P') {
                     label = 'Z'
                 } else if (i1.label === 'B' && i2.label === 'Z' && i3.label === 'N') {
