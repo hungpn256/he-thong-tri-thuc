@@ -401,7 +401,7 @@ export const avoidCollision = (data) => {
     }, 0)
     const mauPendalAngle = resultPedal.reduce((current, item) => current + item.value, 0)
     return {
-        resultAngle: tuWheelAngle / mauWheelAngle,
+        resultWheel: tuWheelAngle / mauWheelAngle,
         resultPedal: tuPendalAngle / mauPendalAngle
     }
 }

@@ -10,8 +10,18 @@ export default function Connering() {
     const onSubmit = (data) => {
         const result = gotoConneringRadius(data);
         setContent(
-            `Góc lệch bánh xe ${Math.round(result.resultWheel * 100) / 100
-            }, Góc đạp ga,phanh ${Math.round(result.resultPedal * 100) / 100
+            `${result.resultWheel === 0 ? "Giữ nguyên góc bánh xe" : `Cần xoay góc bánh xe sang bên ${result.resultWheel > 0 ? 'phải' : 'trái'
+                } một góc: ${Math.abs(result.resultWheel).toFixed(
+                    2,
+                )} độ`}, và ${result.resultPedal > 0
+                    ? 'ấn ga thêm một góc: ' +
+                    Math.abs(result.resultPedal).toFixed(2) +
+                    ' độ'
+                    : result.resultPedal === 0
+                        ? 'giữ nguyên chân ga'
+                        : 'nhả ga ấn phanh thêm một góc: ' +
+                        Math.abs(result.resultPedal).toFixed(2) +
+                        ' độ'
             }`,
         );
     };
@@ -48,10 +58,10 @@ export default function Connering() {
                 dataIndex: 'result',
                 key: 'result',
                 render: function (result) {
-                    return `Cần xoay góc bánh xe sang bên ${result.resultWheel > 0 ? 'phải' : 'trái'
+                    return `${result.resultWheel === 0 ? "Giữ nguyên góc bánh xe" : `Cần xoay góc bánh xe sang bên ${result.resultWheel > 0 ? 'phải' : 'trái'
                         } một góc: ${Math.abs(result.resultWheel).toFixed(
                             2,
-                        )} độ, và ${result.resultPedal > 0
+                        )} độ`}, và ${result.resultPedal > 0
                             ? 'ấn ga thêm một góc: ' +
                             Math.abs(result.resultPedal).toFixed(2) +
                             ' độ'
