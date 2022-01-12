@@ -19,7 +19,7 @@ export const avoidCollision = (data) => {
     const directionOfObstacleAvailable = new DirectionOfObstacle().getTrimfTrap(data.huong_chuong_ngai_vat)
 
     let resultAngle = []
-    if (data.khoang_cach < 20) {
+    if (!(data.khoang_cach / data.van_toc_hien_tai > 5 && data.van_toc_hien_tai < 15)) {
         directionOfObstacleAvailable.forEach((i1) => {
             steeringAngleCurrentAvailable.forEach((i2) => {
                 distanceToObstacleAvailable.forEach((i3) => {
@@ -376,7 +376,7 @@ export const avoidCollision = (data) => {
     })
     let tuWheelAngle = 0
     const mauWheelAngle = resultAngle.reduce((current, item) => current + item.value, 0)
-    if (data.khoang_cach >= 20) {
+    if (data.khoang_cach / data.van_toc_hien_tai > 5 && data.van_toc_hien_tai < 15) {
         const outputWheelAngle1 = new OutputWheelAngle1()
         const outputWheelAngle1Available = resultAngle.map((i) => {
             return outputWheelAngle1.arrTrimfTrap.find((item) => item.label === i.label)

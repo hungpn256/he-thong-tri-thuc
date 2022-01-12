@@ -25,7 +25,7 @@ function App() {
           <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
             <div className='container-fluid'>
               <Link className='navbar-brand' to='/'>
-                Lái xe tự động
+                <img src="/logo.png" style={{ height: 40, width: 40 }}></img>
               </Link>
               <button
                 className='navbar-toggler'
@@ -63,20 +63,6 @@ function App() {
                     </Link>
                   </li>
                 </ul>
-                <form className='d-flex'>
-                  <input
-                    className='form-control me-2'
-                    type='search'
-                    placeholder='Search'
-                    aria-label='Search'
-                  />
-                  <button
-                    className='btn btn-outline-success'
-                    type='submit'
-                  >
-                    Search
-                  </button>
-                </form>
               </div>
             </div>
           </nav>

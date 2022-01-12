@@ -6,6 +6,7 @@ import { avoidCollision } from '../../controllers/avoidCollision';
 // import { ModalContext } from '../../App';
 export default function AvoidCollision() {
     const [distance, setDistance] = useState(0);
+    const [speed, setSpeed] = useState(0);
     const [form] = Form.useForm();
     const { setContent } = useContext(ModalContext);
 
@@ -87,10 +88,10 @@ export default function AvoidCollision() {
             const data = {
                 khoang_cach: khoang_cach,
                 goc_lai: Math.round((Math.random() * 100 - 50) * 100) / 100,
-                goc_muc_tieu: khoang_cach > 20 ? Math.round((Math.random() * 240 - 120) * 100) / 100 : 0,
+                goc_muc_tieu: distance / speed > 5 && speed < 15 ? Math.round((Math.random() * 240 - 120) * 100) / 100 : 0,
                 van_toc_hien_tai: Math.round(Math.random() * 25 * 100) / 100,
                 van_toc_tuong_doi: Math.round((Math.random() * 5 - 2.5) * 100) / 100,
-                huong_chuong_ngai_vat: khoang_cach <= 20 ? Math.round((Math.random() * 360 - 180) * 100) / 100 : 0,
+                huong_chuong_ngai_vat: !(distance / speed > 5 && speed < 15) ? Math.round((Math.random() * 360 - 180) * 100) / 100 : 0,
             };
             const result = avoidCollision(data);
             data.result = result;
@@ -191,6 +192,7 @@ export default function AvoidCollision() {
                         <InputNumber
                             placeholder='từ 0 đến 25'
                             style={{ width: '100%' }}
+                            onChange={setSpeed}
                         />
                     </Form.Item>
                 </Col>
@@ -217,7 +219,7 @@ export default function AvoidCollision() {
                         />
                     </Form.Item>
                 </Col>
-                {distance > 20 ? (
+                {distance / speed > 5 && speed < 15 ? (
                     <Col span={8}>
                         <Form.Item
                             label='Góc đến mục tiêu (độ)'
@@ -268,7 +270,6 @@ export default function AvoidCollision() {
                     </Col>
                 )}
             </Row>
-
             <Form.Item>
                 <Button type='primary' htmlType='submit'>
                     Submit
