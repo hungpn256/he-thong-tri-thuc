@@ -35,7 +35,6 @@ export default function System() {
   return (
     <div>
       <center className='my-5'>
-        <h1> Hệ thống lái xe tự động</h1>
       </center>
       <div className='container'>
         <Text type='danger' code>

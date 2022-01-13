@@ -5,8 +5,8 @@ class DistanceToObstacle2 extends MemberShipFunction {
     constructor() {
         super([
             new Trap('Z', -9999, -9999, 1.5, 5),
-            new Trap('S', 0, 5, 20, 30),
-            new Trap('B', 20, 50, 9999, 9999),
+            new Trap('S', 0, 5, 25, 30),
+            new Trap('B', 25, 50, 9999, 9999),
         ]);
     }
 }
