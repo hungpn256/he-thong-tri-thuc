@@ -20,6 +20,7 @@ export const avoidCollision = (data) => {
 
     let resultAngle = []
     if (!(data.khoang_cach / data.van_toc_hien_tai > 5 && data.van_toc_hien_tai < 15)) {
+        debugger
         directionOfObstacleAvailable.forEach((i1) => {
             steeringAngleCurrentAvailable.forEach((i2) => {
                 distanceToObstacleAvailable.forEach((i3) => {
@@ -61,11 +62,11 @@ export const avoidCollision = (data) => {
                     } else if (i1.label === 'NS' && i2.label === 'NB' && i3.label === 'B') {
                         label = 'Z'
                     } else if (i1.label === 'NS' && i2.label === 'NM' && i3.label === 'Z') {
-                        label = 'PS'
+                        label = 'PM'
                     } else if (i1.label === 'NS' && i2.label === 'NM' && i3.label === 'S') {
-                        label = 'Z'
+                        label = 'PS'
                     } else if (i1.label === 'NS' && i2.label === 'NM' && i3.label === 'B') {
-                        label = 'Z'
+                        label = 'PS'
                     } else if (i1.label === 'NS' && i2.label === 'Z' && i3.label === 'Z') {
                         label = 'PM'
                     } else if (i1.label === 'NS' && i2.label === 'Z' && i3.label === 'S') {
@@ -122,9 +123,9 @@ export const avoidCollision = (data) => {
                         label = 'Z'
                     } else if (i1.label === 'PS' && i2.label === 'NM' && i3.label === 'Z') {
                         label = 'Z'
-                    } else if (i1.label === 'PS' && i2.label === 'NB' && i3.label === 'S') {
+                    } else if (i1.label === 'PS' && i2.label === 'NM' && i3.label === 'S') {
                         label = 'Z'
-                    } else if (i1.label === 'PS' && i2.label === 'NB' && i3.label === 'B') {
+                    } else if (i1.label === 'PS' && i2.label === 'NM' && i3.label === 'B') {
                         label = 'Z'
                     } else if (i1.label === 'PS' && i2.label === 'Z' && i3.label === 'Z') {
                         label = 'NM'
@@ -133,11 +134,11 @@ export const avoidCollision = (data) => {
                     } else if (i1.label === 'PS' && i2.label === 'Z' && i3.label === 'B') {
                         label = 'Z'
                     } else if (i1.label === 'PS' && i2.label === 'PM' && i3.label === 'Z') {
-                        label = 'NS'
+                        label = 'NB'
                     } else if (i1.label === 'PS' && i2.label === 'PM' && i3.label === 'S') {
-                        label = 'Z'
+                        label = 'NS'
                     } else if (i1.label === 'PS' && i2.label === 'PM' && i3.label === 'B') {
-                        label = 'Z'
+                        label = 'NS'
                     } else if (i1.label === 'PS' && i2.label === 'PB' && i3.label === 'Z') {
                         label = 'NM'
                     } else if (i1.label === 'PS' && i2.label === 'PB' && i3.label === 'S') {
@@ -198,6 +199,7 @@ export const avoidCollision = (data) => {
             })
         })
     } else {
+        debugger
         steeringAngleCurrentAvailable.forEach((i1) => {
             targetAngleAvailable.forEach((i2) => {
                 let label = '';

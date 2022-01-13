@@ -115,7 +115,7 @@ export default function Target() {
                 goc_muc_tieu: 0,
                 van_toc_hien_tai: 0,
                 van_toc_tuong_doi: 0,
-                khoang_cach: 0,
+                khoang_cach: 20,
             }}
         >
             <Row gutter={[10, 10]}>

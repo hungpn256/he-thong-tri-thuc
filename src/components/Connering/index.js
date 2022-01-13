@@ -114,7 +114,7 @@ export default function Connering() {
             }}
             initialValues={{
                 goc_lai: 0,
-                goc_muc_tieu: 30,
+                goc_muc_tieu: 0,
                 van_toc_hien_tai: 0,
                 van_toc_tuong_doi: 0,
                 ban_kinh_vong_quay: 5,
