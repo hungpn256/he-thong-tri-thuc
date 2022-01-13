@@ -8,7 +8,7 @@ import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 import Map from './pages/Map';
 import System from './pages/System';
 import Contact from './pages/Contact';
-import Home from './pages/Home';
+import Home from './pages/home';
 export const ModalContext = createContext();
 function App() {
   const [visible, setVisible] = useState(false);

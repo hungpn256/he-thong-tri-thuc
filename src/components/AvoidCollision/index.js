@@ -5,8 +5,8 @@ import { ModalContext } from '../../App';
 import { avoidCollision } from '../../controllers/avoidCollision';
 // import { ModalContext } from '../../App';
 export default function AvoidCollision() {
-    const [distance, setDistance] = useState(0);
-    const [speed, setSpeed] = useState(0);
+    const [distance, setDistance] = useState(20);
+    const [speed, setSpeed] = useState(10);
     const [form] = Form.useForm();
     const { setContent } = useContext(ModalContext);
 
@@ -117,10 +117,10 @@ export default function AvoidCollision() {
                 toast.error('Vui lòng nhập đúng yêu cầu');
             }}
             initialValues={{
-                khoang_cach: 0,
+                khoang_cach: 20,
                 goc_lai: 0,
                 goc_muc_tieu: 0,
-                van_toc_hien_tai: 0,
+                van_toc_hien_tai: 10,
                 van_toc_tuong_doi: 0,
                 huong_chuong_ngai_vat: 0,
             }}
