@@ -20,7 +20,6 @@ export const avoidCollision = (data) => {
 
     let resultAngle = []
     if (!(data.khoang_cach / data.van_toc_hien_tai > 5 && data.van_toc_hien_tai < 15)) {
-        debugger
         directionOfObstacleAvailable.forEach((i1) => {
             steeringAngleCurrentAvailable.forEach((i2) => {
                 distanceToObstacleAvailable.forEach((i3) => {
@@ -181,7 +180,7 @@ export const avoidCollision = (data) => {
                             i1.getValueY(data.huong_chuong_ngai_vat),
                             i2.getValueY(data.goc_lai),
                             i3.getValueY(data.khoang_cach))
-                        console.log(value)
+                        console.log("🚀 ~ file: avoidCollision.js ~ line 183 ~ distanceToObstacleAvailable.forEach ~ value", value)
                         const x = resultAngle.filter((i) => {
                             return i.label === label
                         })
@@ -193,13 +192,14 @@ export const avoidCollision = (data) => {
                                 label: label,
                                 value: value
                             })
+                            console.log("🚀 ~ file: avoidCollision.js ~ line 194 ~ distanceToObstacleAvailable.forEach ~ resultAngle", resultAngle)
                         }
+
                     }
                 })
             })
         })
     } else {
-        debugger
         steeringAngleCurrentAvailable.forEach((i1) => {
             targetAngleAvailable.forEach((i2) => {
                 let label = '';
@@ -370,7 +370,6 @@ export const avoidCollision = (data) => {
                             value: value
                         }
                         )
-                        console.log("🚀 ~ file: avoidCollision.js ~ line 370 ~ relativeSpeedAvailable.forEach ~ resultPedal", resultPedal)
                     }
                 }
             })

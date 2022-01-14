@@ -8,24 +8,12 @@ import { Routes, Route, BrowserRouter, Link } from 'react-router-dom';
 import Map from './pages/Map';
 import System from './pages/System';
 import Contact from './pages/Contact';
-import Home from './pages/home';
+import Home from './pages/Home';
 export const ModalContext = createContext();
 function App() {
   const [visible, setVisible] = useState(false);
   const [content, setContent] = useState('');
   useEffect(() => {
-    // window.addEventListener(
-    //   'scroll',
-    //   function (e) {
-    //     const nav = document.getElementById('navbar');
-    //     if (window.scrollY > 0) {
-    //       nav.classList.add('sticky');
-    //     } else {
-    //       nav.classList.remove('sticky');
-    //     }
-    //   },
-    //   { passive: true },
-    // );
   }, []);
   return (
     <BrowserRouter>
@@ -33,7 +21,6 @@ function App() {
         value={{ visible, setVisible, setContent }}
       >
         <div className='app'>
-          {/* Thanh điều hướng */}
           <nav className="navbar navbar-expand-lg navbar-light sticky-top py-3" style={{ backgroundColor: '#6B6361' }} id="mainNav">
             <div className="container px-4 px-lg-5">
               <Link className="navbar-brand" to="/">Hệ Thống Lái Xe Tự Động</Link>

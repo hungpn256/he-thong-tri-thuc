@@ -9,14 +9,13 @@ const Home = () => {
         <div className="container px-4 px-lg-5 h-100">
           <div className="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
             <div className="col-lg-8 align-self-end">
-              <h1 className="text-white font-weight-bold">Automatic driver assistance system using Fuzzy Logic</h1>
+              <h1 className="text-white font-weight-bold">Hệ thống hỗ trợ lái xe sử dụng Fuzzy Logic</h1>
               <hr className="divider" />
             </div>
             <div className="col-lg-8 align-self-baseline">
-              <p className="text-white-75 mb-5">A mini graduate project in Knowledge Based Systems by Do Thi Thu Ha
-                and Pham Nang
-                Hung!</p>
-              <Link className="btn btn-primary btn-xl" to="/system">Start</Link>
+              <p className="text-white-75 mb-5">Thực hiện bởi Đỗ Thị Thu Hà
+                và Phạm Năng Hưng!</p>
+              <Link className="btn btn-primary btn-xl" to="/system">Bắt đầu</Link>
             </div>
           </div>
         </div>
