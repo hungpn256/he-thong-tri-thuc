@@ -37,6 +37,11 @@ export default function AvoidCollision() {
                 key: 'khoang_cach',
             },
             {
+                title: 'Vận tốc hiện tại',
+                dataIndex: 'van_toc_hien_tai',
+                key: 'van_toc_hien_tai',
+            },
+            {
                 title: 'Góc lái',
                 dataIndex: 'goc_lai',
                 key: 'goc_lai',
@@ -46,20 +51,16 @@ export default function AvoidCollision() {
                 dataIndex: 'goc_muc_tieu',
                 key: 'goc_muc_tieu',
             },
+            
             {
-                title: 'Vận tốc hiện tại',
-                dataIndex: 'van_toc_hien_tai',
-                key: 'van_toc_hien_tai',
+                title: 'Hướng chướng ngại vật',
+                dataIndex: 'huong_chuong_ngai_vat',
+                key: 'huong_chuong_ngai_vat',
             },
             {
                 title: 'Vận tốc tương đối',
                 dataIndex: 'van_toc_tuong_doi',
                 key: 'van_toc_tuong_doi',
-            },
-            {
-                title: 'Hướng chướng ngại vật',
-                dataIndex: 'huong_chuong_ngai_vat',
-                key: 'huong_chuong_ngai_vat',
             },
             {
                 title: 'Kết luận',
@@ -85,13 +86,14 @@ export default function AvoidCollision() {
         let dataTable = [];
         for (let i = 0; i < 10; i++) {
             const khoang_cach = Math.round(Math.random() * 80 * 100) / 100;
+            const van_toc_hien_tai = Math.round(Math.random() * 25 * 100) / 100;
             const data = {
                 khoang_cach: khoang_cach,
+                van_toc_hien_tai: van_toc_hien_tai,
                 goc_lai: Math.round((Math.random() * 100 - 50) * 100) / 100,
-                goc_muc_tieu: distance / speed > 5 && speed < 15 ? Math.round((Math.random() * 240 - 120) * 100) / 100 : 0,
-                van_toc_hien_tai: Math.round(Math.random() * 25 * 100) / 100,
+                goc_muc_tieu: khoang_cach / van_toc_hien_tai > 5 && van_toc_hien_tai < 15 ? Math.round((Math.random() * 240 - 120) * 100) / 100 : 0,
                 van_toc_tuong_doi: Math.round((Math.random() * 5 - 2.5) * 100) / 100,
-                huong_chuong_ngai_vat: !(distance / speed > 5 && speed < 15) ? Math.round((Math.random() * 360 - 180) * 100) / 100 : 0,
+                huong_chuong_ngai_vat: !(khoang_cach / van_toc_hien_tai > 5 && van_toc_hien_tai < 15) ? Math.round((Math.random() * 360 - 180) * 100) / 100 : 0,
             };
             const result = avoidCollision(data);
             data.result = result;
